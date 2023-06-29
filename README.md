@@ -1,3 +1,7 @@
+# Important commands
+mvn quarkus:add-extensions -Dextensions="quarkus-smallrye-openapi"
+
+
 # hello-world
 
 This project uses Quarkus, the Supersonic Subatomic Java Framework.
