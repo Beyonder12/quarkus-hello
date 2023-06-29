@@ -1,9 +1,17 @@
-package com.example.tvseries;
+package com.example.tvseries.dto;
 
 import java.net.URL;
 
 public class TVSeries {
-    String name;
+    int id;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;
@@ -12,4 +20,7 @@ public class TVSeries {
     public void setName(String name) {
         this.name = name;
     }
+
+    String name;
+
 }

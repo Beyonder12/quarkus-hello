@@ -1,11 +1,11 @@
-package com.example.tvseries;
+package com.example.tvseries.rest;
 
+import com.example.tvseries.dto.TVSeries;
 import org.eclipse.microprofile.rest.client.inject.RegisterRestClient;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
-import javax.ws.rs.core.Response;
 import java.util.List;
 
 
