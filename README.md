@@ -1,6 +1,9 @@
 # Important commands
 mvn quarkus:add-extensions -Dextensions="quarkus-smallrye-openapi"
-
+mvn dependency:tree
+mvn dependency:list
+mvn quarkus:list-extensions
+mvn clean compile package -DskipTests
 
 # hello-world
 
