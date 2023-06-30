@@ -1,4 +1,4 @@
-package com.example;
+package com.example.hello;
 
 import javax.persistence.Entity;
 import io.quarkus.hibernate.orm.panache.PanacheEntity;
