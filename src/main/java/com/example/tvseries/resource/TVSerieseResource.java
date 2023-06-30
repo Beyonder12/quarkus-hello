@@ -1,6 +1,7 @@
 package com.example.tvseries.resource;
 
 import com.example.tvseries.dto.TVSeries;
+import com.example.tvseries.dto.oas.GetTVSeriesOAS;
 import com.example.tvseries.rest.TVSeriesProxy;
 import com.example.tvseries.dto.BadRequestDto;
 import com.example.tvseries.dto.InternalServerErrorDto;
@@ -19,6 +20,9 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 @Path("/tvseries")
@@ -33,12 +37,19 @@ public class TVSerieseResource {
     @Produces(MediaType.APPLICATION_JSON)
     @Operation(summary = "Get all TV series", description = "Get all TV series")
     @APIResponses(value = {
+            @APIResponse(responseCode = "200", description = "Success Request", content = @Content(mediaType = MediaType.APPLICATION_JSON, schema = @Schema(implementation = GetTVSeriesOAS.class))),
             @APIResponse(responseCode = "400", description = "Bad Request", content = @Content(mediaType = MediaType.APPLICATION_JSON, schema = @Schema(implementation = BadRequestDto.class))),
             @APIResponse(responseCode = "500", description = "Internal Server Error", content = @Content(mediaType = MediaType.APPLICATION_JSON, schema = @Schema(implementation = InternalServerErrorDto.class)))
     })
-    public List<TVSeries> getTVSeries() {
+    public Response getTVSeries() {
         log.info("getTVSeries method called");
-        return proxy.getTVSeries();
+        List<TVSeries> tvSeries = proxy.getTVSeries();
+        GetTVSeriesOAS getTVSeriesOAS = new GetTVSeriesOAS();
+        getTVSeriesOAS.user = new GetTVSeriesOAS.User();
+        getTVSeriesOAS.roles = List.of(new GetTVSeriesOAS.Role());
+        getTVSeriesOAS.tvSeries = tvSeries;
+
+        return Response.ok().entity(getTVSeriesOAS).build();
     }
 
     @GET
