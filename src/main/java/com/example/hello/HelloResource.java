@@ -17,7 +17,7 @@ import javax.ws.rs.core.Response;
 import java.util.List;
 
 @Path("/hello")
-@Tag(name = "Hello Resource", description = "Endpoints for simple behavior")
+@Tag(name = "Hello", description = "Simple behavior")
 public class HelloResource {
 
     private static final Logger log = LoggerFactory.getLogger(HelloResource.class);
