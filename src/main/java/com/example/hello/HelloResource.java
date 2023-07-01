@@ -3,6 +3,7 @@ package com.example.hello;
 
 import com.example.hello.exception.BusinessException;
 import io.smallrye.common.annotation.Blocking;
+import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -16,6 +17,7 @@ import javax.ws.rs.core.Response;
 import java.util.List;
 
 @Path("/hello")
+@Tag(name = "Hello Resource", description = "Endpoints for simple behavior")
 public class HelloResource {
 
     private static final Logger log = LoggerFactory.getLogger(HelloResource.class);

@@ -11,6 +11,7 @@ import org.eclipse.microprofile.openapi.annotations.media.Content;
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponses;
+import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,6 +27,7 @@ import java.util.Collection;
 import java.util.List;
 
 @Path("/tvseries")
+@Tag(name = "TvSeries Resource", description = "Endpoints for open api TV Series")
 public class TVSerieseResource {
 
     private final static Logger log = LoggerFactory.getLogger(TVSerieseResource.class);
